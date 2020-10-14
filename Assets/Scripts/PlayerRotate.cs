@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRotate : MonoBehaviour
 {
+    public PlayerLaunch pl;
     public Transform obj;
     private bool rotating;
 
@@ -28,7 +29,10 @@ public class PlayerRotate : MonoBehaviour
             {
                 if (hit.collider.transform.name == "Head")
                 {
-                    rotating = true;
+                    if (!pl.charging)
+                    {
+                        rotating = true;
+                    }
                 }
             }
 

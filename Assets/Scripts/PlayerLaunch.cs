@@ -10,7 +10,7 @@ public class PlayerLaunch : MonoBehaviour
     public Transform sprite;
     public float chargeDistance;
     public float thrust;
-    private bool charging;
+    public bool charging;
 
     void Start()
     {
