@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerLaunch : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Transform sprite;
     public float chargeDistance;
     public float thrust;
     private bool charging;
@@ -14,6 +15,8 @@ public class PlayerLaunch : MonoBehaviour
         chargeDistance = 0;
         thrust = 10f;
         charging = false;
+        Vector3 initialScale = sprite.localScale;
+        sprite.localScale = new Vector3(initialScale.x, 0, initialScale.z);
     }
 
     void Update()
@@ -35,8 +38,17 @@ public class PlayerLaunch : MonoBehaviour
         if (charging)
         {
             Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            // Debug.LogFormat("position: {0}", transform.position);
-            chargeDistance = Vector2.Distance(transform.position, currentMousePos);
+            // Vector2 difference = (Vector2)transform.position - currentMousePos;
+            // Vector2 axis = (Vector2)Vector3.Project(new Vector3(difference.x, difference.y, 0), transform.up);
+            // Debug.LogFormat("difference {0}, forward {1}, axis {2}", difference, transform.up, axis.magnitude);
+            if (difference.x > 0 && difference.y > 0)
+            {
+                chargeDistance = Vector2.Distance(transform.position, currentMousePos);
+                // chargeDistance = axis.magnitude;
+
+                Vector3 initialScale = sprite.localScale;
+                sprite.localScale = new Vector3(initialScale.x, chargeDistance, initialScale.z);
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
