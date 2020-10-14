@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class ThrustLevel : MonoBehaviour
 {
     public Text thrustText;
-    public float thrustCounter;
+    public PlayerLaunch pl;
 
     // Update is called once per frame
     void Update()
     {
         if (thrustText)
         {
-            thrustText.text = thrustCounter.ToString();
+            // Debug.Log(pl.chargeDistance);
+            thrustText.text = pl.chargeDistance.ToString();
         }
     }
 }

@@ -20,17 +20,6 @@ public class Attractor : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        foreach (Attractor attractor in Attractors)
-        {
-            if (attractor != this)
-            {
-                // Attract(attractor);
-            }
-        }
-    }
-
     void OnEnable()
     {
         if (Attractors == null)

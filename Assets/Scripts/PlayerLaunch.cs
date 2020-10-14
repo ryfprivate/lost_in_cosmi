@@ -6,6 +6,7 @@ public class PlayerLaunch : MonoBehaviour
 {
     public float thrust = 10f;
     public Rigidbody2D rb;
+    public float chargeDistance = 0;
     private bool charging = false;
 
     public void Launch()
@@ -31,18 +32,15 @@ public class PlayerLaunch : MonoBehaviour
 
         if (charging)
         {
-            Debug.Log("charging");
+            Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // Debug.LogFormat("position: {0}", transform.position);
+            chargeDistance = Vector2.Distance(transform.position, currentMousePos);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             if (charging)
             {
-                // Released after charging
-                Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                float distance = Vector2.Distance(transform.position, currentMousePos);
-                Debug.Log(distance);
-                Debug.Log("released");
                 Launch();
             }
 
