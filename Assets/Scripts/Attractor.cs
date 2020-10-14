@@ -9,10 +9,12 @@ public class Attractor : MonoBehaviour
     public Rigidbody2D rb;
 
     public Transform gravityField;
-    public float gravityScale = 2f;
+    public float gravityScale;
 
     void Start()
     {
+        gravityScale = 2f;
+
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         if (gravityField)
         {

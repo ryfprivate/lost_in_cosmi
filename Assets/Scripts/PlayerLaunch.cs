@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerLaunch : MonoBehaviour
 {
-    public float thrust = 10f;
     public Rigidbody2D rb;
-    public float chargeDistance = 0;
-    private bool charging = false;
+    public float chargeDistance;
+    public float thrust;
+    private bool charging;
 
-    public void Launch()
+    void Start()
     {
-        rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+        chargeDistance = 0;
+        thrust = 10f;
+        charging = false;
     }
 
     void Update()
@@ -46,5 +48,10 @@ public class PlayerLaunch : MonoBehaviour
 
             charging = false;
         }
+    }
+
+    public void Launch()
+    {
+        rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
     }
 }
