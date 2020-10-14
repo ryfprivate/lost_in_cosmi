@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerRotate : MonoBehaviour
 {
     public Transform obj;
-    private bool rotating = false;
+    private bool rotating;
+
+    void Start()
+    {
+        rotating = false;
+    }
 
     void Update()
     {
