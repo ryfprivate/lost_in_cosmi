@@ -5,12 +5,14 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public static bool locked;
+    public static bool expanding;
+    public Transform player;
     public float camBoundary;
     public float dragSpeed;
     public Camera cam;
     public float maxCamSize;
     private Vector3 dragOrigin;
-    public bool expanding;
+
 
     void Start()
     {
@@ -23,16 +25,19 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        if (locked) return;
-
         if (expanding)
         {
-            cam.orthographicSize = cam.orthographicSize + 1 * Time.deltaTime;
             if (cam.orthographicSize > maxCamSize)
             {
                 expanding = false;
             }
+            else
+            {
+                cam.orthographicSize = cam.orthographicSize + 1 * Time.deltaTime;
+            }
         }
+
+        if (locked) return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -46,15 +51,10 @@ public class CameraMovement : MonoBehaviour
         Vector3 move = new Vector3(pos.x * dragSpeed, 0, pos.y * dragSpeed);
 
         float newX = transform.position.x - move.x;
-        if (newX >= 0 && newX <= camBoundary)
+        if (newX >= -8 && newX <= camBoundary)
         {
             transform.Translate(-move, Space.World);
         }
-    }
-
-    public void Expand()
-    {
-        expanding = true;
     }
 
     void checkBoundary()
