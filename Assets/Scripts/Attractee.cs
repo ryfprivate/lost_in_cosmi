@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Attractee : MonoBehaviour
 {
-    const float G = 0.667408f;
     public Rigidbody2D rb;
     void FixedUpdate()
     {
@@ -19,7 +18,7 @@ public class Attractee : MonoBehaviour
 
     void Attract(Attractor other)
     {
-        Rigidbody2D rb2 = other.rb;
+        Rigidbody2D bigRb = other.rb;
         Vector2 direction = other.transform.position - transform.position;
         float distance = direction.magnitude;
         float gravityRadius = (other.transform.localScale.x * other.gravityScale) / 2;
@@ -29,7 +28,7 @@ public class Attractee : MonoBehaviour
             return;
         }
 
-        float mag = G * (rb.mass * rb2.mass) / Mathf.Pow(distance, 2);
+        float mag = Attractor.G * (rb.mass * bigRb.mass) / Mathf.Pow(distance, 2);
 
         rb.AddForce(direction.normalized * mag);
     }
