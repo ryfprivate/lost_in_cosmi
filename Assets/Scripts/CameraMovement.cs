@@ -2,19 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraDrag : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
-    public float camBoundary = 21f;
+    public static bool locked;
+    public float camBoundary;
     public float dragSpeed;
+    public Camera cam;
+    public float maxCamSize;
     private Vector3 dragOrigin;
+    public bool expanding;
 
     void Start()
     {
+        locked = false;
+        maxCamSize = 8;
+        camBoundary = 21f;
         dragSpeed = 0.2f;
+        expanding = false;
     }
 
     void Update()
     {
+        if (locked) return;
+
+        if (expanding)
+        {
+            cam.orthographicSize = cam.orthographicSize + 1 * Time.deltaTime;
+            if (cam.orthographicSize > maxCamSize)
+            {
+                expanding = false;
+            }
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             dragOrigin = Input.mousePosition;
@@ -31,5 +50,15 @@ public class CameraDrag : MonoBehaviour
         {
             transform.Translate(-move, Space.World);
         }
+    }
+
+    public void Expand()
+    {
+        expanding = true;
+    }
+
+    void checkBoundary()
+    {
+
     }
 }

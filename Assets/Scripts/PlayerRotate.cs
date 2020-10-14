@@ -17,6 +17,7 @@ public class PlayerRotate : MonoBehaviour
     {
         if (rotating)
         {
+            CameraMovement.locked = true;
             RotatePlayer();
         }
 
@@ -40,6 +41,7 @@ public class PlayerRotate : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            CameraMovement.locked = false;
             rotating = false;
         }
     }

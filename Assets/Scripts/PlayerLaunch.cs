@@ -39,6 +39,7 @@ public class PlayerLaunch : MonoBehaviour
 
         if (charging)
         {
+            CameraMovement.locked = true;
             Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 difference = (Vector2)transform.position - currentMousePos;
             // Vector2 axis = (Vector2)Vector3.Project(new Vector3(difference.x, difference.y, 0), transform.up);
@@ -65,6 +66,7 @@ public class PlayerLaunch : MonoBehaviour
                 Launch();
             }
 
+            CameraMovement.locked = false;
             charging = false;
         }
     }
