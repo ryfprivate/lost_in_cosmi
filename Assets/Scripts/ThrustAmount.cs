@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThrustLevel : MonoBehaviour
+public class ThrustAmount : MonoBehaviour
 {
     public Text thrustText;
     public PlayerLaunch pl;
