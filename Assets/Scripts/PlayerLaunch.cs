@@ -51,6 +51,7 @@ public class PlayerLaunch : MonoBehaviour
                 if (mag <= maxChargeDist)
                 {
                     chargeDistance = Vector2.Distance(transform.position, currentMousePos);
+                    GameEvents.current.RocketTriggerCharge(chargeDistance);
                     // chargeDistance = axis.magnitude;
                     thrust = chargeDistance * maxThrust;
 
