@@ -33,7 +33,6 @@ public class PlayerLaunch : MonoBehaviour
                 if (hit.collider.transform.name == "Tail")
                 {
                     charging = true;
-                    CameraMovement.expanding = true;
                 }
             }
         }

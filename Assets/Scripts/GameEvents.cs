@@ -12,7 +12,9 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
+    // When the player starts charging the rocket
     public event Action<float> onRocketTriggerCharge;
+
     public void RocketTriggerCharge(float chargeDistance)
     {
         if (onRocketTriggerCharge != null)
