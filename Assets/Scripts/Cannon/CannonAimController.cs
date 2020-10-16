@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAimController : MonoBehaviour
+public class CannonAimController : MonoBehaviour
 {
-    public PlayerLaunchController pl;
-    public Transform player;
+    public CannonLaunchController pl;
+    public Transform cannon;
     private bool rotating;
     void Start()
     {
@@ -60,6 +60,6 @@ public class PlayerAimController : MonoBehaviour
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        player.transform.rotation = rotation;
+        cannon.transform.rotation = rotation;
     }
 }

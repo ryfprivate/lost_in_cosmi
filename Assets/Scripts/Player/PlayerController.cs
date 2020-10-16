@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     {
         GameEvents.current.onDestinationCollision += Success;
         GameEvents.current.onObstacleCollision += Explode;
+        gameObject.SetActive(false);
     }
 
     void OnCollisionEnter2D(Collision2D col)

@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLaunchController : MonoBehaviour
+public class CannonLaunchController : MonoBehaviour
 {
     const float maxThrust = 40f;
-    public Transform player;
-    public Rigidbody2D rb;
-    public float thrust;
+    public GameObject cannon;
+    public GameObject player;
+    public SpriteRenderer fire;
     public bool charging;
+    private float thrust;
     private float holdDownStartTime;
 
     void Start()
     {
+        GameEvents.current.onTriggerLaunch += DisableCannon;
+        GameEvents.current.onTriggerLaunch += CalibratePlayer;
         GameEvents.current.onTriggerLaunch += Launch;
 
+        fire.enabled = false;
         thrust = 10f;
         charging = false;
     }
@@ -40,6 +44,7 @@ public class PlayerLaunchController : MonoBehaviour
                 if (ClickedOnEngine())
                 {
                     charging = true;
+                    fire.enabled = true;
                     holdDownStartTime = Time.time;
                 }
             }
@@ -68,8 +73,24 @@ public class PlayerLaunchController : MonoBehaviour
         return holdTimeNormalized * maxThrust;
     }
 
+    void DisableCannon(float thrust)
+    {
+        GameObject head = cannon.transform.Find("Head").gameObject;
+        GameObject tail = cannon.transform.Find("Tail").gameObject;
+        head.SetActive(false);
+        tail.SetActive(false);
+    }
+
+    void CalibratePlayer(float thrust)
+    {
+        player.SetActive(true);
+        Vector3 rotation = new Vector3(cannon.transform.eulerAngles.x, cannon.transform.eulerAngles.y, cannon.transform.eulerAngles.z);
+        player.transform.eulerAngles = rotation;
+    }
+
     void Launch(float thrust)
     {
-        rb.AddForce(player.up * thrust, ForceMode2D.Impulse);
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        rb.AddForce(player.transform.up * thrust, ForceMode2D.Impulse);
     }
 }

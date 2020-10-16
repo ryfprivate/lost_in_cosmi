@@ -984,7 +984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690135132}
   - component: {fileID: 690135133}
-  - component: {fileID: 690135135}
+  - component: {fileID: 690135134}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -1021,7 +1021,7 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &690135135
+--- !u!114 &690135134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1033,8 +1033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd998a188b18f6445a763b6b695af7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1968116548}
-  rb: {fileID: 1968116545}
+  cannon: {fileID: 1375508275}
+  player: {fileID: 1968116544}
   thrust: 0
   charging: 0
 --- !u!1 &765947632
@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 788410482}
   - component: {fileID: 788410483}
   m_Layer: 0
-  m_Name: PlayerGraphics
+  m_Name: CannonGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1515,30 +1515,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375508277}
-  - component: {fileID: 1375508278}
-  - component: {fileID: 1375508279}
-  - component: {fileID: 1375508276}
-  - component: {fileID: 1375508280}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Cannon
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1375508276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375508275}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a470f27b11e5e834aa818498f8b7eef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1375508278}
 --- !u!4 &1375508277
 Transform:
   m_ObjectHideFlags: 0
@@ -1547,7 +1530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375508275}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.21, y: 1.89, z: 0}
+  m_LocalPosition: {x: -3.21, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 788410482}
@@ -1556,55 +1539,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!50 &1375508278
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375508275}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!70 &1375508279
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375508275}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  m_Size: {x: 0.4, y: 1.2}
-  m_Direction: 0
---- !u!114 &1375508280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375508275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5f44390e34701b46bcad661cb6c2e84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1543317804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,7 +2467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1956627036}
   - component: {fileID: 1956627038}
-  - component: {fileID: 1956627039}
+  - component: {fileID: 1956627037}
   m_Layer: 0
   m_Name: Head
   m_TagString: PlayerHead
@@ -2555,6 +2489,20 @@ Transform:
   m_Father: {fileID: 1375508277}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956627037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956627035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64733288fe2de2545af4cc92b3ba979f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pl: {fileID: 690135134}
+  cannon: {fileID: 1375508277}
 --- !u!136 &1956627038
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2569,20 +2517,6 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.3, z: 0}
---- !u!114 &1956627039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956627035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64733288fe2de2545af4cc92b3ba979f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pl: {fileID: 690135135}
-  player: {fileID: 1968116548}
 --- !u!1 &1968116544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,7 +2532,7 @@ GameObject:
   - component: {fileID: 1968116550}
   - component: {fileID: 1968116549}
   m_Layer: 0
-  m_Name: monke_torso
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
