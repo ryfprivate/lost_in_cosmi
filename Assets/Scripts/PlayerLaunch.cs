@@ -18,39 +18,44 @@ public class PlayerLaunch : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                if (hit.collider.transform.name == "Tail")
-                {
-                    if (!charging)
-                    {
-                        charging = true;
-                        holdDownStartTime = Time.time;
-                    }
-                }
-            }
-        }
-
         if (charging)
         {
             float holdDownTime = Time.time - holdDownStartTime;
             thrust = CalculateThrust(holdDownTime);
             GameEvents.current.TriggerCharge(thrust);
-        }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (charging)
+            if (Input.GetMouseButtonUp(0))
             {
                 GameEvents.current.TriggerLaunch(thrust);
+                charging = false;
             }
-            charging = false;
         }
+        else
+        {
+            if (Input.GetMouseButton(0))
+            {
+                if (ClickedOnEngine())
+                {
+                    charging = true;
+                    holdDownStartTime = Time.time;
+                }
+            }
+        }
+    }
+
+    bool ClickedOnEngine()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.transform.name == "Tail")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     float CalculateThrust(float holdTime)
