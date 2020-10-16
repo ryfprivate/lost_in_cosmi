@@ -23,10 +23,11 @@ public class Attractee : MonoBehaviour
         float distance = direction.magnitude;
         float gravityRadius = (other.transform.localScale.x * other.gravityScale) / 2;
 
-        if (distance == 0 || distance > gravityRadius)
+        if (distance > gravityRadius)
         {
             return;
         }
+        // Debug.LogFormat("Attracting {0} to {1}", this, other);
 
         float mag = Attractor.G * (rb.mass * bigRb.mass) / Mathf.Pow(distance, 2);
 

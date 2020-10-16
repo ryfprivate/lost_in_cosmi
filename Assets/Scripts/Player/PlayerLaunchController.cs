@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerLaunchController : MonoBehaviour
 {
-    const float maxChargeDist = 1f;
-    const float maxThrust = 30f;
+    const float maxThrust = 40f;
+    public Transform player;
     public Rigidbody2D rb;
     public float thrust;
     public bool charging;
@@ -70,6 +70,6 @@ public class PlayerLaunchController : MonoBehaviour
 
     void Launch(float thrust)
     {
-        rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+        rb.AddForce(player.up * thrust, ForceMode2D.Impulse);
     }
 }
