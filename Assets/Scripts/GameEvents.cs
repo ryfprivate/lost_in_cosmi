@@ -23,13 +23,23 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    // When the player released after holding on the engine
+    // When the player releases after holding on the engine
     public event Action<float> onTriggerLaunch;
     public void TriggerLaunch(float thrust)
     {
         if (onTriggerLaunch != null)
         {
             onTriggerLaunch(thrust);
+        }
+    }
+
+    // When the player holds on the head (aiming)
+    public event Action onTriggerAim;
+    public void TriggerAim()
+    {
+        if (onTriggerAim != null)
+        {
+            onTriggerAim();
         }
     }
 }

@@ -567,7 +567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd96d94cd2923ff4482940512d2e5776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
   thrust: 10
   charging: 0
 --- !u!114 &690135135
@@ -1765,6 +1764,7 @@ GameObject:
   - component: {fileID: 1956627036}
   - component: {fileID: 1956627038}
   - component: {fileID: 1956627037}
+  - component: {fileID: 1956627039}
   m_Layer: 0
   m_Name: Head
   m_TagString: PlayerHead
@@ -1799,7 +1799,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pl: {fileID: 690135134}
-  obj: {fileID: 1375508277}
 --- !u!136 &1956627038
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1814,6 +1813,19 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!114 &1956627039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956627035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64733288fe2de2545af4cc92b3ba979f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1375508277}
 --- !u!1 &2058743487
 GameObject:
   m_ObjectHideFlags: 0
