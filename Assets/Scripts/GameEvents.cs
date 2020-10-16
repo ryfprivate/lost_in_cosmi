@@ -42,4 +42,24 @@ public class GameEvents : MonoBehaviour
             onTriggerAim();
         }
     }
+
+    // When the player collides with an obstacle
+    public event Action onObstacleCollision;
+    public void ObstacleCollision()
+    {
+        if (onObstacleCollision != null)
+        {
+            onObstacleCollision();
+        }
+    }
+
+    // When the player collides with the destination
+    public event Action onDestinationCollision;
+    public void DestinationCollision()
+    {
+        if (onDestinationCollision != null)
+        {
+            onDestinationCollision();
+        }
+    }
 }

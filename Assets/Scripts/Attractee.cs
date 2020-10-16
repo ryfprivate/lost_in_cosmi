@@ -32,12 +32,4 @@ public class Attractee : MonoBehaviour
 
         rb.AddForce(direction.normalized * mag);
     }
-
-    void Rotate(Attractor other)
-    {
-        Vector2 lookDirection = other.transform.position - transform.position;
-        float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0f, 0f, lookAngle + 90);
-    }
 }
