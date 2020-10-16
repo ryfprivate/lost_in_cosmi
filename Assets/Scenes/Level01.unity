@@ -517,7 +517,6 @@ GameObject:
   m_Component:
   - component: {fileID: 690135132}
   - component: {fileID: 690135133}
-  - component: {fileID: 690135134}
   - component: {fileID: 690135135}
   m_Layer: 0
   m_Name: Tail
@@ -555,20 +554,6 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &690135134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690135131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd96d94cd2923ff4482940512d2e5776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 10
-  charging: 0
 --- !u!114 &690135135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1375508278}
+  thrust: 0
+  charging: 0
 --- !u!1 &765947632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,7 +1763,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1956627036}
   - component: {fileID: 1956627038}
-  - component: {fileID: 1956627037}
   - component: {fileID: 1956627039}
   m_Layer: 0
   m_Name: Head
@@ -1799,19 +1785,6 @@ Transform:
   m_Father: {fileID: 1375508277}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1956627037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956627035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ea62a2c031e61a40bae36c09983b449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pl: {fileID: 690135134}
 --- !u!136 &1956627038
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1838,6 +1811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64733288fe2de2545af4cc92b3ba979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pl: {fileID: 690135135}
   player: {fileID: 1375508277}
 --- !u!1 &2058743487
 GameObject:
