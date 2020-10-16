@@ -12,14 +12,24 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
-    // When the player starts charging the rocket
-    public event Action<float> onRocketTriggerCharge;
+    // When the player holds on the engine (charge)
+    public event Action<float> onTriggerCharge;
 
-    public void RocketTriggerCharge(float chargeDistance)
+    public void TriggerCharge(float thrust)
     {
-        if (onRocketTriggerCharge != null)
+        if (onTriggerCharge != null)
         {
-            onRocketTriggerCharge(chargeDistance);
+            onTriggerCharge(thrust);
+        }
+    }
+
+    // When the player released after holding on the engine
+    public event Action<float> onTriggerLaunch;
+    public void TriggerLaunch(float thrust)
+    {
+        if (onTriggerLaunch != null)
+        {
+            onTriggerLaunch(thrust);
         }
     }
 }

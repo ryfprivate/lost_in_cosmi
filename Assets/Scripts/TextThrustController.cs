@@ -8,11 +8,16 @@ public class TextThrustController : MonoBehaviour
     public Text thrustText;
     void Start()
     {
-        GameEvents.current.onRocketTriggerCharge += UpdateText;
+        GameEvents.current.onTriggerCharge += UpdateText;
     }
 
-    void UpdateText(float chargeDistance)
+    void UpdateText(float thrust)
     {
-        thrustText.text = chargeDistance.ToString();
+        thrustText.text = thrust.ToString();
+    }
+
+    void onDestroy()
+    {
+        GameEvents.current.onTriggerCharge -= UpdateText;
     }
 }
