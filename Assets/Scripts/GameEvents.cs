@@ -12,6 +12,16 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
+    // When the level starts
+    public event Action onLevelStart;
+    public void LevelStart()
+    {
+        if (onLevelStart != null)
+        {
+            onLevelStart();
+        }
+    }
+
     // When the player holds on the engine (charge)
     public event Action<float> onTriggerCharge;
 
