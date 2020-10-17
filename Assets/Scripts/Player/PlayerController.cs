@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     {
         GameEvents.current.onDestinationCollision += Success;
         GameEvents.current.onObstacleCollision += Explode;
-        GameEvents.current.onLeaveGameArea += Explode;
+        GameEvents.current.onLeaveGameArea += Implode;
 
         gameObject.SetActive(false);
 
@@ -48,9 +48,15 @@ public class PlayerController : MonoBehaviour
         Debug.Log("SUCCESSS");
     }
 
+    void Implode()
+    {
+        Debug.Log("DEADDDD");
+        GameEvents.current.onLeaveGameArea -= Implode;
+    }
+
     void Explode()
     {
         Debug.Log("BOOOM");
-        GameEvents.current.onLeaveGameArea -= Explode;
+        GameEvents.current.onObstacleCollision -= Explode;
     }
 }
