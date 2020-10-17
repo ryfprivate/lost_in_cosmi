@@ -43,13 +43,23 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    // When the player holds on the head (aiming)
-    public event Action onTriggerAim;
-    public void TriggerAim()
+    // When the player holds on the head (starts aiming)
+    public event Action onStartAim;
+    public void StartAim()
     {
-        if (onTriggerAim != null)
+        if (onStartAim != null)
         {
-            onTriggerAim();
+            onStartAim();
+        }
+    }
+
+    // When the player lets go of the head (stops aiming)
+    public event Action onStopAim;
+    public void StopAim()
+    {
+        if (onStopAim != null)
+        {
+            onStopAim();
         }
     }
 

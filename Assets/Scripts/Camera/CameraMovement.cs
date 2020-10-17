@@ -7,7 +7,13 @@ public class CameraMovement : MonoBehaviour
     Vector3 initialMousePosition;
     public float zoomOutMin = 1;
     public float zoomOutMax = 8;
-    private bool movementLocked = true;
+    private bool movementLocked = false;
+
+    void Start()
+    {
+        GameEvents.current.onStartAim += LockMovement;
+        GameEvents.current.onStopAim += UnlockMovement;
+    }
 
     void Update()
     {
@@ -36,6 +42,16 @@ public class CameraMovement : MonoBehaviour
             Camera.main.transform.position += direction;
         }
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
+    }
+
+    void LockMovement()
+    {
+        movementLocked = true;
+    }
+
+    void UnlockMovement()
+    {
+        movementLocked = false;
     }
 
     void Zoom(float increment)

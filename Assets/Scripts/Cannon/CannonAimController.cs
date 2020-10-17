@@ -9,7 +9,7 @@ public class CannonAimController : MonoBehaviour
     private bool rotating;
     void Start()
     {
-        GameEvents.current.onTriggerAim += Rotate;
+        GameEvents.current.onStartAim += Rotate;
 
         rotating = false;
     }
@@ -18,10 +18,11 @@ public class CannonAimController : MonoBehaviour
     {
         if (rotating)
         {
-            GameEvents.current.TriggerAim();
+            GameEvents.current.StartAim();
 
             if (Input.GetMouseButtonUp(0))
             {
+                GameEvents.current.StopAim();
                 rotating = false;
             }
         }
