@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     void Success()
     {
         Debug.Log("SUCCESSS");
+        GameEvents.current.onDestinationCollision -= Success;
     }
 
     void Implode()
