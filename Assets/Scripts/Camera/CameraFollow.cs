@@ -39,8 +39,17 @@ namespace Activity
         [Tooltip("Offset applied to target position before any additional calculations. Typically used to keep camera a fixed distance 'behind' target.")]
         [SerializeField] protected Vector3 offset = new Vector3(0, 0, -10);
 
+        private bool followOn = false;
+
+        void Start()
+        {
+            GameEvents.current.onTriggerLaunch += Follow;
+        }
+
         protected void LateUpdate()
         {
+            if (!followOn) return;
+
             Assert.IsTrue(targetRBToFollow != null || targetToFollow != null, "Require at least 1 of our taret objects to be set.");
 
             var targetWorldPos = Vector3.zero;
@@ -114,6 +123,11 @@ namespace Activity
 
             transform.position = clampedSmoothPos;
 
+        }
+
+        void Follow(float thrust)
+        {
+            followOn = true;
         }
     }
 }
