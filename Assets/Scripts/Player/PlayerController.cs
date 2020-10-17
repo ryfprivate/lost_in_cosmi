@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float xMin;
-    public float xMax;
-    public float yMin;
-    public float yMax;
+    public Level level;
 
     void Start()
     {
@@ -16,16 +13,12 @@ public class PlayerController : MonoBehaviour
         GameEvents.current.onLeaveGameArea += Implode;
 
         gameObject.SetActive(false);
-
-        xMin = -10;
-        xMax = 30;
-        yMin = -10;
-        yMax = 10;
     }
 
     void Update()
     {
-        if (transform.position.x > xMax || transform.position.x < xMin || transform.position.y > yMax || transform.position.y < yMin)
+        if (transform.position.x > level.xMax || transform.position.x < level.xMin
+        || transform.position.y > level.yMax || transform.position.y < level.yMin)
         {
             GameEvents.current.LeaveGameArea();
         }

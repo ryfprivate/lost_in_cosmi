@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    Vector3 initialMousePosition;
-    public float zoomOutMin = 1;
-    public float zoomOutMax = 8;
+    public Level level;
+    private float zoomOutMin = 1;
+    private float zoomOutMax = 8;
+    private Vector3 initialMousePosition;
     private bool movementLocked = false;
+    private float camHeight;
+    private float camWidth;
 
     void Start()
     {
         GameEvents.current.onStartAim += LockMovement;
         GameEvents.current.onStopAim += UnlockMovement;
+
+        camHeight = 2f * Camera.main.orthographicSize;
+        camWidth = camHeight * Camera.main.aspect;
     }
 
     void Update()
@@ -43,7 +49,15 @@ public class CameraMovement : MonoBehaviour
         else if (Input.GetMouseButton(0))
         {
             Vector3 direction = initialMousePosition - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Camera.main.transform.position += direction;
+
+            float xMin = level.xMin + camWidth / 2;
+            float yMin = level.yMin + camHeight / 2;
+            float xMax = level.xMax - camWidth / 2;
+            float yMax = level.yMax - camHeight / 2;
+
+            float newX = Mathf.Clamp(Camera.main.transform.position.x + direction.x, xMin, xMax);
+            float newY = Mathf.Clamp(Camera.main.transform.position.y + direction.y, yMin, yMax);
+            Camera.main.transform.position = new Vector3(newX, newY, Camera.main.transform.position.z);
         }
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }

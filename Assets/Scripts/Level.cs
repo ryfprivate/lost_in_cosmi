@@ -5,8 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
+    public float xMin;
+    public float xMax;
+    public float yMin;
+    public float yMax;
     public float timeToDie;
     private bool isDying;
+
+    void Awake()
+    {
+        xMin = -10;
+        xMax = 30;
+        yMin = -10;
+        yMax = 10;
+    }
 
     void Start()
     {
