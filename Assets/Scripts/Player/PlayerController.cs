@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +14,6 @@ public class PlayerController : MonoBehaviour
         GameEvents.current.onDestinationCollision += Success;
         GameEvents.current.onObstacleCollision += Explode;
         GameEvents.current.onLeaveGameArea += Explode;
-        GameEvents.current.onLeaveGameArea += Respawn;
 
         gameObject.SetActive(false);
 
@@ -29,7 +27,6 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.x > xMax || transform.position.x < xMin || transform.position.y > yMax || transform.position.y < yMin)
         {
-            Debug.LogFormat("death at {0} {1} {2}", transform.position.x, transform.position.y, xMax);
             GameEvents.current.LeaveGameArea();
         }
     }
@@ -54,11 +51,6 @@ public class PlayerController : MonoBehaviour
     void Explode()
     {
         Debug.Log("BOOOM");
-    }
-
-    void Respawn()
-    {
-        Scene currentLevel = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentLevel.name);
+        GameEvents.current.onLeaveGameArea -= Explode;
     }
 }
