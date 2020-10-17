@@ -62,4 +62,14 @@ public class GameEvents : MonoBehaviour
             onDestinationCollision();
         }
     }
+
+    // When the player leaves the game area (reaches the boundaries)
+    public event Action onLeaveGameArea;
+    public void LeaveGameArea()
+    {
+        if (onLeaveGameArea != null)
+        {
+            onLeaveGameArea();
+        }
+    }
 }
