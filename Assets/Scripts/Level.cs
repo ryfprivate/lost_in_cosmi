@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Level : MonoBehaviour
 {
     public Animator transition;
+    public Transform startPlanet;
+    public Transform endPlanet;
     public float xMin;
     public float xMax;
     public float yMin;
@@ -15,9 +17,10 @@ public class Level : MonoBehaviour
 
     void Awake()
     {
-        xMin = -10;
-        xMax = 30;
+        // Debug.LogFormat("start {0} end {1}", startPlanet.position, endPlanet.position);
+        xMin = startPlanet.position.x - startPlanet.localScale.x;
         yMin = -10;
+        xMax = endPlanet.position.x + endPlanet.localScale.x;
         yMax = 10;
     }
 
