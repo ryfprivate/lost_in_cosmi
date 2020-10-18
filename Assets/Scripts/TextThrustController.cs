@@ -13,7 +13,8 @@ public class TextThrustController : MonoBehaviour
 
     void UpdateText(float thrust)
     {
-        thrustText.text = thrust.ToString();
+        int percentage = (int)(thrust / CannonLaunchController.maxThrust * 100);
+        thrustText.text = percentage.ToString() + "%";
     }
 
     void onDestroy()

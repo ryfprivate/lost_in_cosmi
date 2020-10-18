@@ -52,5 +52,6 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("BOOOM");
         GameEvents.current.onObstacleCollision -= Explode;
+        GameEvents.current.onDestinationCollision -= Success;
     }
 }

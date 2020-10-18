@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonLaunchController : MonoBehaviour
 {
-    const float maxThrust = 40f;
+    public static float maxThrust = 40f;
     public GameObject cannon;
     public GameObject player;
     public Animator fire;
@@ -19,7 +19,7 @@ public class CannonLaunchController : MonoBehaviour
         GameEvents.current.onTriggerLaunch += CalibratePlayer;
         GameEvents.current.onTriggerLaunch += Launch;
 
-        animSpeed = fire.speed;
+        animSpeed = 0.8f;
         fire.speed = 0f;
         thrust = 10f;
         charging = false;
