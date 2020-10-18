@@ -7,11 +7,14 @@ public class Attractee : MonoBehaviour
     public Rigidbody2D rb;
     void FixedUpdate()
     {
-        foreach (Attractor attractor in Attractor.Attractors)
+        if (Attractor.Attractors != null)
         {
-            if (attractor.name != this.name)
+            foreach (Attractor attractor in Attractor.Attractors)
             {
-                Attract(attractor);
+                if (attractor.name != this.name)
+                {
+                    Attract(attractor);
+                }
             }
         }
     }
