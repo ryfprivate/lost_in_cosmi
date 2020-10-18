@@ -43,7 +43,14 @@ namespace Activity
 
         void Start()
         {
-            GameEvents.current.onTriggerLaunch += Follow;
+            if (GameEvents.current)
+            {
+                GameEvents.current.onTriggerLaunch += Follow;
+            }
+            else
+            {
+                followOn = true;
+            }
         }
 
         protected void LateUpdate()

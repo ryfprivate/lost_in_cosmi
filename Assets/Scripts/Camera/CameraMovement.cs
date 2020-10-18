@@ -50,13 +50,23 @@ public class CameraMovement : MonoBehaviour
         {
             Vector3 direction = initialMousePosition - Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            float xMin = level.xMin + camWidth / 2;
-            float yMin = level.yMin + camHeight / 2;
-            float xMax = level.xMax - camWidth / 2;
-            float yMax = level.yMax - camHeight / 2;
+            float newX, newY;
+            if (level)
+            {
+                float xMin = level.xMin + camWidth / 2;
+                float yMin = level.yMin + camHeight / 2;
+                float xMax = level.xMax - camWidth / 2;
+                float yMax = level.yMax - camHeight / 2;
 
-            float newX = Mathf.Clamp(Camera.main.transform.position.x + direction.x, xMin, xMax);
-            float newY = Mathf.Clamp(Camera.main.transform.position.y + direction.y, yMin, yMax);
+                newX = Mathf.Clamp(Camera.main.transform.position.x + direction.x, xMin, xMax);
+                newY = Mathf.Clamp(Camera.main.transform.position.y + direction.y, yMin, yMax);
+            }
+            else
+            {
+                newX = Camera.main.transform.position.x + direction.x;
+                newY = Camera.main.transform.position.y + direction.y;
+            }
+
             Camera.main.transform.position = new Vector3(newX, newY, Camera.main.transform.position.z);
         }
         Zoom(Input.GetAxis("Mouse ScrollWheel"));

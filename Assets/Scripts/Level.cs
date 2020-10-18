@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
+    public Animator transition;
     public float xMin;
     public float xMax;
     public float yMin;
@@ -24,6 +25,7 @@ public class Level : MonoBehaviour
     {
         GameEvents.current.onLeaveGameArea += Die;
         GameEvents.current.onObstacleCollision += Die;
+        GameEvents.current.onDestinationCollision += LoadNextLevel;
 
         Debug.Log("Level Start");
         GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().PlayMusic();
@@ -56,5 +58,21 @@ public class Level : MonoBehaviour
         GameEvents.current.onLeaveGameArea -= Reload;
         Scene currentLevel = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentLevel.name);
+    }
+
+    void LoadNextLevel(GameObject dest)
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        // Play animation
+        transition.SetTrigger("Start");
+        // Wait
+        yield return new WaitForSeconds(1);
+
+        // Load scene
+        SceneManager.LoadScene(levelIndex);
     }
 }
