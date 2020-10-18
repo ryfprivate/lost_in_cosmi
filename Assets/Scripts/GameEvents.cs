@@ -74,12 +74,12 @@ public class GameEvents : MonoBehaviour
     }
 
     // When the player collides with the destination
-    public event Action onDestinationCollision;
-    public void DestinationCollision()
+    public event Action<GameObject> onDestinationCollision;
+    public void DestinationCollision(GameObject dest)
     {
         if (onDestinationCollision != null)
         {
-            onDestinationCollision();
+            onDestinationCollision(dest);
         }
     }
 

@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.tag == "Destination")
         {
-            GameEvents.current.DestinationCollision();
+            GameEvents.current.DestinationCollision(col.gameObject);
         }
         if (col.gameObject.tag == "Obstacle")
         {
@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Success()
+    void Success(GameObject dest)
     {
-        Debug.Log("SUCCESSS");
+        Debug.LogFormat("SUCCESSS {0}", dest);
         GameEvents.current.onDestinationCollision -= Success;
     }
 

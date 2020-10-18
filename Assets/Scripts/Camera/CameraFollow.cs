@@ -75,48 +75,12 @@ namespace Activity
             var smoothLeadPos = Vector3.Lerp(transform.position, leadPos, cameraSmooth * Time.deltaTime);
 
 
-            //smoothing most like to happen here between transform.Position and the adjusted calculated target position.
-
-            //for now we just snap to final location
-
-
-            // learned a little bit about something called lerp, used to handle linear interpolation - a math function that will allow for the camera FOV to be scaled based on velocity
-            // might try scaling camera FOV based on if the accelerate key is held
-            //  void Update()
-
-            { // update so that the zoom is called as much as possible to keep it smooth
-
-                // attempting to get the input of the w key as the trigger for the if statement
-                if (Input.GetKey(KeyCode.W))
-                    // lerp intended to increase fov, making the screen more zoomed out
-                    // added time.deltatime in order to have the FOV scale linearly every second instead of every frame
-                    myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, MaxFOV, t * Time.deltaTime);
-                else
-                    // lerp intended to make the FOV more narrow in order to zoom on the player while they are slow
-                    myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, MinFOV, t * Time.deltaTime);
-
-
-            }
-            // attempting to change camera feild of view by holding and releasing the w key, should this be a whole new script?
-            //(transform.position - NewCamPos = velocity * 0.2f)
-            //(NewCamPos > (targetWorldPos - NewCamPos) / 6) ;
-            // dist from player to newcampos >= 1/6th targetWorldPos then  
-            //if (NewCamPos.x >=  )
-
-
-            //transform.position = transform.position; 
-            //else
 
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
             Vector3 MaxPos = transform.position + movement;
             Vector3 offsetClamp = MaxPos - centerPt;
             transform.position = centerPt + Vector3.ClampMagnitude(offsetClamp, radius);
-
-
-            //FROM STEVE: not sure what you are doing up there, but you definitely don't want to read input in here
-            //      some of the idea is right but I don't know why you have all these new positions. I've renamed
-            //      some of the ones at the top to make the changes here easier to follow
 
             var diff = smoothLeadPos - targetWorldPos;
             var clampedSmoothPos = Vector3.ClampMagnitude(diff, radius) + targetWorldPos;
