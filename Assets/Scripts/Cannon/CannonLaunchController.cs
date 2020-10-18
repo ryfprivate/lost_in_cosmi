@@ -7,10 +7,11 @@ public class CannonLaunchController : MonoBehaviour
     const float maxThrust = 40f;
     public GameObject cannon;
     public GameObject player;
-    public SpriteRenderer fire;
+    public Animator fire;
     public bool charging;
     private float thrust;
     private float holdDownStartTime;
+    private float animSpeed;
 
     void Start()
     {
@@ -18,7 +19,8 @@ public class CannonLaunchController : MonoBehaviour
         GameEvents.current.onTriggerLaunch += CalibratePlayer;
         GameEvents.current.onTriggerLaunch += Launch;
 
-        fire.enabled = false;
+        animSpeed = fire.speed;
+        fire.speed = 0f;
         thrust = 10f;
         charging = false;
     }
@@ -44,7 +46,7 @@ public class CannonLaunchController : MonoBehaviour
                 if (ClickedOnEngine())
                 {
                     charging = true;
-                    fire.enabled = true;
+                    fire.speed = animSpeed;
                     holdDownStartTime = Time.time;
                 }
             }
