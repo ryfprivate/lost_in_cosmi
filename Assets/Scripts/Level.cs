@@ -76,6 +76,14 @@ public class Level : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         // Load scene
-        SceneManager.LoadScene(levelIndex);
+        if (levelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.Log(SceneManager.sceneCountInBuildSettings);
+            SceneManager.LoadScene(levelIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene("StartMenu");
+        }
     }
 }
