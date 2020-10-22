@@ -19,7 +19,7 @@ public class CannonLaunchController : MonoBehaviour
         GameEvents.current.onTriggerLaunch += CalibratePlayer;
         GameEvents.current.onTriggerLaunch += Launch;
 
-        animSpeed = 0.8f;
+        animSpeed = 1.875f;
         fire.speed = 0f;
         thrust = 10f;
         charging = false;
