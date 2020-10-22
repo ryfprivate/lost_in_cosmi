@@ -5,12 +5,7 @@ using UnityEngine;
 public class Orbit : MonoBehaviour
 {
     public Transform parent;
-    private float orbitSpeed;
-
-    void Start()
-    {
-        orbitSpeed = 10.0f;
-    }
+    public float orbitSpeed = 10.0f;
 
     void Update()
     {
