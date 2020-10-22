@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d67c1f4246d8f34bb594af2176cc911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &714160520
+--- !u!1 &683245347
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,22 +234,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 714160521}
-  - component: {fileID: 714160522}
+  - component: {fileID: 683245348}
+  - component: {fileID: 683245349}
   m_Layer: 0
-  m_Name: earth
+  m_Name: neptune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &714160521
+--- !u!4 &683245348
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714160520}
+  m_GameObject: {fileID: 683245347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -257,13 +257,13 @@ Transform:
   m_Father: {fileID: 1184262945}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &714160522
+--- !u!212 &683245349
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714160520}
+  m_GameObject: {fileID: 683245347}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -296,7 +296,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dea5a96cf4b2ed142a528c1915659194, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2523b595d140def40bdaa63725b786d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -702,7 +702,7 @@ PrefabInstance:
     - target: {fileID: 2477251540633511605, guid: d82b5e36708ff8b4fbb9eea5ddd467e0,
         type: 3}
       propertyPath: m_Name
-      value: Earth
+      value: Neptune
       objectReference: {fileID: 0}
     - target: {fileID: 2477251540633511626, guid: d82b5e36708ff8b4fbb9eea5ddd467e0,
         type: 3}
@@ -838,6 +838,11 @@ PrefabInstance:
       propertyPath: endPlanet
       value: 
       objectReference: {fileID: 1184262945}
+    - target: {fileID: 3988960686917600572, guid: 2d3bc1031dd20e845bd1ac271c9fd055,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 3988960686283824929}
     - target: {fileID: 3988960686917600573, guid: 2d3bc1031dd20e845bd1ac271c9fd055,
         type: 3}
       propertyPath: m_Name
@@ -848,6 +853,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3988960687478330133, guid: 2d3bc1031dd20e845bd1ac271c9fd055,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3988960687478330135, guid: 2d3bc1031dd20e845bd1ac271c9fd055,
         type: 3}
       propertyPath: m_Name
@@ -861,6 +871,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 3988960686283824927}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3988960686283824929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3988960687478330133, guid: 2d3bc1031dd20e845bd1ac271c9fd055,
+    type: 3}
+  m_PrefabInstance: {fileID: 3988960686283824927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4120625884752647805
 PrefabInstance:
   m_ObjectHideFlags: 0

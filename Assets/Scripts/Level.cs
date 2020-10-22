@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class Level : MonoBehaviour
     public Animator transition;
     public Transform startPlanet;
     public Transform endPlanet;
+    public Image image;
     public float xMin;
     public float xMax;
     public float yMin;
@@ -22,6 +24,7 @@ public class Level : MonoBehaviour
         yMin = -10;
         xMax = endPlanet.position.x + endPlanet.localScale.x;
         yMax = 10;
+        image.enabled = true;
     }
 
     void Start()
