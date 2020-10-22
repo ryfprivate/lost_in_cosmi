@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Level level;
+    public Transform cannon;
 
     void Start()
     {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
         GameEvents.current.onObstacleCollision += Explode;
         GameEvents.current.onLeaveGameArea += Implode;
 
+        transform.position = cannon.position;
         gameObject.SetActive(false);
     }
 
