@@ -1710,6 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1126657637}
+  death: {fileID: 1512503179}
 --- !u!4 &1126657641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4120625886060364652, guid: 8e508f5e20f51fd4a841df543aeea523,
@@ -1994,6 +1995,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447278215}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1512503179 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8766550281110608770, guid: 8e508f5e20f51fd4a841df543aeea523,
+    type: 3}
+  m_PrefabInstance: {fileID: 1126657635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1736319328
 GameObject:
   m_ObjectHideFlags: 0
