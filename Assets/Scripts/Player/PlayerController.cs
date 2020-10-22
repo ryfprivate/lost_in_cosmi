@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public Level level;
     public Transform cannon;
+    public Animator death;
+    private float deathAnimSpeed;
 
     void Start()
     {
@@ -15,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
         transform.position = cannon.position;
         gameObject.SetActive(false);
+        deathAnimSpeed = death.speed;
+        death.speed = 0;
     }
 
     void Update()
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour
     void Implode()
     {
         Debug.Log("DEADDDD");
+        death.speed = deathAnimSpeed;
         GameEvents.current.onLeaveGameArea -= Implode;
     }
 
