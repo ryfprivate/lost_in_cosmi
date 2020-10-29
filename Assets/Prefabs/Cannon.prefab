@@ -353,8 +353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannon: {fileID: 5623685286028646446}
   player: {fileID: 0}
-  cannonCharge: {fileID: 6191757615082985568}
-  fire: {fileID: 8124912161886198110}
+  cannonAnimator: {fileID: 6191757615082985568}
+  fuelAnimator: {fileID: 8124912161886198110}
   charging: 0
 --- !u!1 &5623685285739403568
 GameObject:

@@ -7,8 +7,8 @@ public class CannonLaunchController : MonoBehaviour
     public static float maxThrust = 40f;
     public GameObject cannon;
     public GameObject player;
-    public Animator cannonCharge;
-    public Animator fire;
+    public Animator cannonAnimator;
+    public Animator fuelAnimator;
     public bool charging;
     private float thrust;
     private float holdDownStartTime;
@@ -21,10 +21,8 @@ public class CannonLaunchController : MonoBehaviour
         GameEvents.current.onTriggerLaunch += CalibratePlayer;
         GameEvents.current.onTriggerLaunch += Launch;
 
-        cannonChargeAnimSpeed = 0.5f;
-        cannonCharge.speed = 0f;
-        fireAnimSpeed = 1.5f;
-        fire.speed = 0f;
+        cannonAnimator.SetBool("isCharging", false);
+        fuelAnimator.SetBool("isCharging", false);
         thrust = 10f;
         charging = false;
     }
@@ -50,8 +48,8 @@ public class CannonLaunchController : MonoBehaviour
                 if (ClickedOnEngine())
                 {
                     charging = true;
-                    cannonCharge.speed = cannonChargeAnimSpeed;
-                    fire.speed = fireAnimSpeed;
+                    cannonAnimator.SetBool("isCharging", true);
+                    fuelAnimator.SetBool("isCharging", true);
                     holdDownStartTime = Time.time;
                 }
             }

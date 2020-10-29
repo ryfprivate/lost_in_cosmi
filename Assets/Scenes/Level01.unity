@@ -846,6 +846,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6825569944136557870, guid: d4320bc4f1a2c8745a28d6229c7386ce,
+        type: 3}
+      propertyPath: m_Name
+      value: FuelGraphics
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5623685284972737178, guid: d4320bc4f1a2c8745a28d6229c7386ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d4320bc4f1a2c8745a28d6229c7386ce, type: 3}
@@ -1043,6 +1048,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1475128542 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8766550281110608770, guid: 8e508f5e20f51fd4a841df543aeea523,
+    type: 3}
+  m_PrefabInstance: {fileID: 4120625884752647805}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1522978851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5623685286028646445, guid: d4320bc4f1a2c8745a28d6229c7386ce,
@@ -1531,6 +1542,11 @@ PrefabInstance:
       propertyPath: cannon
       value: 
       objectReference: {fileID: 1522978851}
+    - target: {fileID: 4120625886060364657, guid: 8e508f5e20f51fd4a841df543aeea523,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1475128542}
     - target: {fileID: 4120625886060364662, guid: 8e508f5e20f51fd4a841df543aeea523,
         type: 3}
       propertyPath: m_Name
