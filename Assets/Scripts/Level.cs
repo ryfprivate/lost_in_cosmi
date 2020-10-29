@@ -33,6 +33,8 @@ public class Level : MonoBehaviour
         GameEvents.current.onObstacleCollision += Die;
         GameEvents.current.onDestinationCollision += LoadNextLevel;
 
+        GameEvents.current.LevelStart();
+
         Debug.Log("Level Start");
         GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().PlayMusic();
         timeToDie = 2f;
@@ -59,11 +61,12 @@ public class Level : MonoBehaviour
         isDying = true;
     }
 
-    void Reload()
+    public void Reload()
     {
         GameEvents.current.onLeaveGameArea -= Reload;
         Scene currentLevel = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentLevel.name);
+        GameEvents.current.LevelReload();
     }
 
     void LoadNextLevel(GameObject dest)

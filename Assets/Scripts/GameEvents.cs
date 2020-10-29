@@ -22,6 +22,16 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    // When the level reloads
+    public event Action onLevelReload;
+    public void LevelReload()
+    {
+        if (onLevelReload != null)
+        {
+            onLevelReload();
+        }
+    }
+
     // When the player holds on the engine (charge)
     public event Action<float> onTriggerCharge;
 
